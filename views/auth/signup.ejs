@@ -1,0 +1,30 @@
+
+<form action="/signup" method="POST" id="form">
+  <h2>SIGNUP</h2>
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" placeholder="jonny">
+  <br><br>
+  <label for="firstName">First Name</label>
+  <input id="firstName" type="text" name="firstName" placeholder="Jon">
+  <br><br>
+  <label for="lastName">Last Name</label>
+  <input id="lastName" type="text" name="lastName" placeholder="Snow">
+  <br><br>
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password">
+
+  <% if (typeof message !== "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
+  <br><br>
+
+  <button>Create account</button>
+  <p class="account-message">
+  
+    <a href="/auth/facebook">Signup with facebook</a>
+  </p>
+  <p class="account-message">
+    Do you already have an account?
+    <a href="/login">Login</a>
+  </p>
+</form>

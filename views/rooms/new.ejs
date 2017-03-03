@@ -1,0 +1,23 @@
+<h1>Add new room</h1>
+
+<% if (message.length > 0) { %>
+  <p class='success'> <%= message %> </p>
+<% } %>
+
+<form class="" action="/rooms" method="post" enctype='multipart/form-data'>
+  <div class="">
+    <label for="name">Name</label>
+    <input id='name' name="name"><br>
+  </div>
+  <div class="">
+    <label for="desc">Description</label>
+    <input id='desc' name="desc"><br>
+  </div>
+  <div class="">
+    <label for="picture">Picture</label>
+    <input type='file' id='picture' name="picture"><br>
+
+  </div>
+
+  <button> Add room</button>
+</form>

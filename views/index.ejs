@@ -1,0 +1,25 @@
+<h1><%= title %></h1>
+
+<% if(successMessage.length > 0){ %>
+  <p class='success'> <%= successMessage %> </p>
+<% } %>
+
+<% if(user){ %>
+  <p>Welcome, <%= user.firstName %>. </p>
+<% } %>
+
+<ul>
+  <% if(user){ %>
+    <li><a href="/logout"><button>Logout</button></a><br></li>
+    <li><a href="/secret"><button>Secret page</button></a><br></li>
+    <li><a href="/kgb-files"><button>Kgb-files</button></a><br></li>
+
+    <li><a href="/rooms/new"><button>Add new room</button></a><br></li>
+    <li><a href="/my-rooms"><button>Show my rooms</button></a><br></li>
+
+  <% } else { %>
+  <li><a href="/signup"><button>Signup</button></a></li>
+  <li><a href="/login"><button>Login</button></a></li>
+  <% } %>
+
+</ul>

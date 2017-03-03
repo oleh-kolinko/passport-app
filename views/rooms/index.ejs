@@ -1,0 +1,15 @@
+<h1>Your rooms</h1>
+<ul class='rooms'>
+  <% rooms.forEach( room =>{ %>
+    <li>
+      <h2> <%= room.name %> </h2>
+      <p> <%= room.desc %> </p>
+      <img src="<%= room.picture %>" alt="room">
+    </li>
+  <% }) %>
+</ul>
+<br>
+<ul>
+  <li><a href="/"><button>Home</button></a><br></li>
+  <li><a href="/rooms/new"><button>Add new room</button></a><br></li>
+</ul>
