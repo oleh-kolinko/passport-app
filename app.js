@@ -16,11 +16,16 @@ const FbStrategy   = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const bcrypt       = require('bcrypt');
 
+//env vars for secrets
+const dotenv       = require('dotenv');
+dotenv.config();
+
 const User         = require('./models/user.js');
 //------------------------------------------------
 
 //Conncet DB:
-mongoose.connect('mongodb://localhost/passport-app');
+// mongoose.connect('mongodb://localhost/passport-app');
+mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 
@@ -71,17 +76,17 @@ passport.use(new LocalStrategy((username, password, next) => {
 
 //Facebook Strategy ( NOT FINAL )
 passport.use(new FbStrategy({
-  clientID: "1882551672015340",
-  clientSecret: "7c3a2faaa9839fe4eee5b6c952c370d0",
-  callbackURL: "http://localhost:3000/auth/facebook/callback"
+  clientID: process.env.FB_CLIENT_ID,
+  clientSecret: process.env.FB_CLIENT_SECRET,
+  callbackURL: process.env.HOST_ADDRESS +  "/auth/facebook/callback"
 }, (accessToken, refreshToken, profile, done) => {
   done(null, profile);
 }));
 //Google Strategy
 passport.use(new GoogleStrategy({
-  clientID: "395085297832-3as037togaisddk05f66c981sm28jn07.apps.googleusercontent.com",
-  clientSecret: "hulBW6An0LdIy5v3lsnVXwPG",
-  callbackURL: "http://localhost:3000/auth/google/callback"
+  clientID: process.env.G_CLIENT_ID,
+  clientSecret: process.env.G_CLIENT_SECRET,
+  callbackURL: process.env.HOST_ADDRESS + "/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
   done(null, profile);
 }));
